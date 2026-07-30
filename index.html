@@ -1,1 +1,131 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0b0d12"><meta name="description" content="Basis Weight and roll length calculator for 48-inch and 51-inch mandrels."><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="BW Calculator"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icons/icon-180.png"><link rel="icon" href="icons/icon-192.png"><title>BW & FT Calculator</title><link rel="stylesheet" href="style.css"></head><body><div class="app-shell"><header class="hero"><div class="brand-mark">BW</div><div><h1>BW & FT Calculator</h1><p>Basis Weight and Roll Length</p></div></header><main><section class="segmented"><button id="tab-bw" class="segment active" type="button">Calculate BW</button><button id="tab-ft" class="segment" type="button">Calculate FT</button></section><section id="panel-bw" class="panel active"><div class="card"><div class="field"><label>Mandrel</label><div class="choice-row"><button class="choice active" data-group="bw-mandrel" data-value="51" type="button">51&quot;</button><button class="choice" data-group="bw-mandrel" data-value="48" type="button">48&quot;</button></div><input id="bw-mandrel" type="hidden" value="51"></div><div class="field"><label for="bw-weight">Weight <span>lb</span></label><input id="bw-weight" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter weight"></div><div class="field"><label for="bw-length">Length <span>ft</span></label><input id="bw-length" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter length"></div><button id="calculate-bw" class="primary" type="button">Calculate BW</button><div id="bw-message" class="message"></div><div class="result-card"><div><span class="result-label">Basis Weight</span><strong id="bw-value">—</strong></div><button class="copy-btn" data-copy-target="bw-value" type="button">Copy</button></div></div></section><section id="panel-ft" class="panel" hidden><div class="card"><div class="field"><label>Mandrel</label><div class="choice-row"><button class="choice active" data-group="ft-mandrel" data-value="51" type="button">51&quot;</button><button class="choice" data-group="ft-mandrel" data-value="48" type="button">48&quot;</button></div><input id="ft-mandrel" type="hidden" value="51"></div><div class="field"><label for="ft-bw">Basis Weight <span>BW</span></label><input id="ft-bw" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter BW"></div><div class="field"><label for="ft-weight">Weight <span>lb</span></label><input id="ft-weight" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter weight"></div><button id="calculate-ft" class="primary" type="button">Calculate FT</button><div id="ft-message" class="message"></div><div class="result-card"><div><span class="result-label">Length</span><strong id="ft-value">—</strong></div><button class="copy-btn" data-copy-target="ft-value" type="button">Copy</button></div></div></section><section class="info-card"><h2>Quick reference</h2><p>Choose the mandrel, enter the required values, and tap Calculate. Your last mandrel selection is remembered on this device.</p></section></main><footer><span>Works offline after first visit</span><span>•</span><span>Version 1.0</span></footer></div><div id="toast" class="toast">Copied</div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0d12">
+  <meta name="description" content="Professional Basis Weight and roll length calculator.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BW Tools">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>BW Tools</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="identity">
+        <div class="app-icon" aria-hidden="true">BW</div>
+        <div>
+          <h1>BW Tools</h1>
+          <p>Basis Weight & Roll Length</p>
+        </div>
+      </div>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="Toggle theme">☾</button>
+    </header>
+
+    <main>
+      <section class="segmented" aria-label="Calculator mode">
+        <button id="tab-bw" class="segment active" type="button">Calculate BW</button>
+        <button id="tab-ft" class="segment" type="button">Calculate FT</button>
+      </section>
+
+      <section id="panel-bw" class="panel">
+        <div class="card">
+          <div class="field">
+            <label>Mandrel</label>
+            <div class="choice-row">
+              <button class="choice active" data-group="bw-mandrel" data-value="51" type="button">51"</button>
+              <button class="choice" data-group="bw-mandrel" data-value="48" type="button">48"</button>
+            </div>
+            <input id="bw-mandrel" type="hidden" value="51">
+          </div>
+
+          <div class="field">
+            <label for="bw-weight">Weight <span>lb</span></label>
+            <input id="bw-weight" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter weight">
+          </div>
+
+          <div class="field">
+            <label for="bw-length">Length <span>ft</span></label>
+            <input id="bw-length" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter length">
+          </div>
+
+          <div class="result-card">
+            <div>
+              <span class="result-label">Basis Weight</span>
+              <strong id="bw-value">—</strong>
+            </div>
+            <div class="result-actions">
+              <button class="small-btn" data-copy="bw-value" type="button">Copy</button>
+              <button class="small-btn" data-share="bw" type="button">Share</button>
+            </div>
+          </div>
+          <div id="bw-error" class="error"></div>
+        </div>
+      </section>
+
+      <section id="panel-ft" class="panel" hidden>
+        <div class="card">
+          <div class="field">
+            <label>Mandrel</label>
+            <div class="choice-row">
+              <button class="choice active" data-group="ft-mandrel" data-value="51" type="button">51"</button>
+              <button class="choice" data-group="ft-mandrel" data-value="48" type="button">48"</button>
+            </div>
+            <input id="ft-mandrel" type="hidden" value="51">
+          </div>
+
+          <div class="field">
+            <label for="ft-bw">Basis Weight <span>BW</span></label>
+            <input id="ft-bw" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter BW">
+          </div>
+
+          <div class="field">
+            <label for="ft-weight">Weight <span>lb</span></label>
+            <input id="ft-weight" inputmode="decimal" type="number" min="0" step="any" placeholder="Enter weight">
+          </div>
+
+          <div class="result-card">
+            <div>
+              <span class="result-label">Length</span>
+              <strong id="ft-value">—</strong>
+            </div>
+            <div class="result-actions">
+              <button class="small-btn" data-copy="ft-value" type="button">Copy</button>
+              <button class="small-btn" data-share="ft" type="button">Share</button>
+            </div>
+          </div>
+          <div id="ft-error" class="error"></div>
+        </div>
+      </section>
+
+      <section class="history-card">
+        <div class="section-heading">
+          <div>
+            <h2>Recent calculations</h2>
+            <p>Your last 10 results</p>
+          </div>
+          <button id="clear-history" class="text-button" type="button">Clear</button>
+        </div>
+        <div id="history-list" class="history-list">
+          <div class="empty-state">No calculations yet.</div>
+        </div>
+      </section>
+
+      <section class="install-card">
+        <h2>Add to Home Screen</h2>
+        <p>On iPhone, tap Share in Safari, then choose <strong>Add to Home Screen</strong>.</p>
+      </section>
+    </main>
+
+    <footer>BW Tools • Version 2.0</footer>
+  </div>
+
+  <div id="toast" class="toast">Copied</div>
+  <script src="app.js"></script>
+</body>
+</html>

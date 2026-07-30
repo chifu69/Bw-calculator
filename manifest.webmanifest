@@ -1,14 +1,19 @@
 {
-  "name": "BW & FT Calculator",
-  "short_name": "BW Calculator",
-  "description": "Basis Weight and roll length calculator.",
+  "name": "BW Tools",
+  "short_name": "BW Tools",
+  "description": "Professional Basis Weight and roll length calculator.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#0b0d12",
-  "theme_color": "#0b0d12",
+  "background_color": "#0a0d13",
+  "theme_color": "#0a0d13",
   "orientation": "portrait",
   "icons": [
+    {
+      "src": "icons/icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
     {
       "src": "icons/icon-192.png",
       "sizes": "192x192",
@@ -17,11 +22,6 @@
     {
       "src": "icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "icons/icon-180.png",
-      "sizes": "180x180",
       "type": "image/png"
     }
   ]
