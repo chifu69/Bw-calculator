@@ -1,6 +1,12 @@
-# BW Tools v2
+# BW Tools v3
 
 Professional Basis Weight and roll length calculator.
+
+## Changes in version 3
+
+- Removed calculation history
+- Removed the “Add to Home Screen” information section
+- Kept automatic calculations, Copy, Share, light/dark mode, remembered settings, PWA installation support, and offline support
 
 ## Update your existing GitHub Pages site
 
@@ -11,19 +17,8 @@ Upload and replace these files in the root of the repository:
 - `app.js`
 - `manifest.webmanifest`
 - `sw.js`
+- `README.md`
 
-Also upload the entire `icons` folder.
+Also upload the `icons` folder if it is not already present.
 
 Commit the changes. GitHub Pages will update automatically.
-
-## Features
-
-- Automatic calculation while typing
-- BW and FT calculators
-- 48-inch and 51-inch mandrels
-- Copy and Share buttons
-- Last 10 calculations
-- Light and dark modes
-- Remembers settings
-- Installable PWA
-- Offline support
